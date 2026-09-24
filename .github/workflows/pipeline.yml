@@ -8,13 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
-    name: Build & Test
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -27,7 +25,7 @@ jobs:
           cache-from: type=gha        # lee cache de runs anteriores
           cache-to: type=gha,mode=max # guarda cache para el próximo run
 
-     - name: Detect secrets (Gitleaks)
+      - name: Detect secrets (Gitleaks)
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
