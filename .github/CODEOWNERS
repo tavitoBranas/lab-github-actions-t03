@@ -1,0 +1,5 @@
+# Todo el repositorio requiere revisión de estos usuarios
+*   @tavitobranas
+
+# Workflows de CI/CD requieren revisión del equipo de infraestructura
+.github/workflows/   @tavitobranas
